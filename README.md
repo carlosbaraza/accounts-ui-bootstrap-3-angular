@@ -1,5 +1,5 @@
-# accounts-ui-angular
-AngularJS wrapper for
+# accounts-ui-bootstrap-3-angular
+Angular wrapper for
 [ian:accounts-ui-bootstrap-3](https://github.com/ianmartorell/meteor-accounts-ui-bootstrap-3)
 package. You can get full instructions about how to use the package
 there.

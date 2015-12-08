@@ -1,7 +1,7 @@
 Package.describe({
   name: "carlosbaraza:accounts-ui-bootstrap-3-angular",
   summary: "AngularJS wrapper for ian:accounts-ui-bootstrap-3 package",
-  version: "0.0.1",
+  version: "0.0.2",
   documentation: 'README.md',
   git: "https://github.com/carlosbaraza/accounts-ui-bootstrap-3-angular"
 });
