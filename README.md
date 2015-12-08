@@ -1,5 +1,5 @@
 # accounts-ui-bootstrap-3-angular
-Angular wrapper for
+AngularJS wrapper for
 [ian:accounts-ui-bootstrap-3](https://github.com/ianmartorell/meteor-accounts-ui-bootstrap-3)
 package. You can get full instructions about how to use the package
 there.
@@ -45,21 +45,48 @@ A full example might be:
 ```
 
 # Custom templates
-In order to set custom templates, currently the only way I could find
-is using the `Session` to configure the package, as `templating` is no
-longer compatible with `angular`.
-
-Example of the custom template:
-```javascript
-Session.set('accounts-ui.Template._loginButtonsAdditionalLoggedInDropdownActions',
-  '<a class="btn btn-success btn-block" \
-      id="login-buttons-members" href="/members/requests"> \
-    <span class="glyphicon glyphicon-th" aria-hidden="true"></span> Espace membre \
-  </a>'
-);
+In order to set custom templates, we have to create a package called
+`accounts-ui-bootstrap-3-angular-templates` like this:
+```
+meteor create --package accounts-ui-bootstrap-3-angular-templates
 ```
 
-I will, however, continue looking for a better, more elegant way of doing this.
+Then we should delete all the content of the folder
+`packages/accounts-ui-bootstrap-3-angular-templates` and replace the content of
+`package.js` with this:
+```javascript
+Package.describe({
+  name: 'accounts-ui-bootstrap-3-angular-templates',
+  version: '0.0.1'
+});
+
+Package.onUse(function(api) {
+  api.versionsFrom('1.2.1');
+  api.use('blaze-html-templates');
+
+  api.addFiles('custom-templates.html');
+});
+```
+
+As you can see we use 'blaze-html-templates' to have the ability of
+setting up the custom templates as it is said in the official docs
+([ian:accounts-ui-bootstrap-3](https://github.com/ianmartorell/meteor-accounts-ui-bootstrap-3)).
+
+Then we create a file called `custom-templates.html` and there we
+can write down our custom templates:
+```html
+<template name="_loginButtonsAdditionalLoggedInDropdownActions">
+  <a class="btn btn-success btn-block" id="login-buttons-members"
+     href="/members/requests">
+    <span class="glyphicon glyphicon-th" aria-hidden="true"></span> Espace membre
+  </a>
+</template>
+```
+
+Finally, do not forget to add your package to the project:
+```
+meteor add accounts-ui-bootstrap-3-angular-templates
+```
 
 # Localization and other configuration
 This kind of configuration should be done in the client, and it is not affected
