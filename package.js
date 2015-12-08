@@ -17,5 +17,5 @@ Package.onUse(function (api) {
     'login-buttons-directive.js'
   ], 'client');
 
-  api.imply('ian:accounts-ui-bootstrap-3');
+  api.imply('ian:accounts-ui-bootstrap-3@1.2.84');
 });
