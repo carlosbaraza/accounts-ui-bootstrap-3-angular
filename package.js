@@ -11,7 +11,8 @@ Package.onUse(function (api) {
   api.use('spacebars-compiler');
   api.use('session');
   api.use('blaze-html-templates', 'client');
-  
+  api.use('angular', 'client');
+
   // Add package with templates if installed
   if (typeof Package['accounts-ui-bootstrap-3-angular-templates'] !== "undefined")
     api.use('accounts-ui-bootstrap-3-angular-templates');
